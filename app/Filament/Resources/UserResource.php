@@ -29,6 +29,8 @@ class UserResource extends Resource
                auth()->user()->can('view_resource', User::class);
     }
     protected static ?string $navigationIcon = 'heroicon-o-users';
+    protected static ?string $label = 'Usuário';
+    protected static ?string $pluralLabel = 'Usuários';
 
     public static function form(Forms\Form $form): Forms\Form
     {
