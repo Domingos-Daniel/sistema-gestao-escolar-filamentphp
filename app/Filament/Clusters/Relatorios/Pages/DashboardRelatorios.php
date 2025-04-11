@@ -7,17 +7,15 @@ use App\Filament\Widgets\MatriculasChart;
 use App\Filament\Widgets\NotasChart;
 use App\Filament\Widgets\PresencaChart;
 use App\Filament\Widgets\PropinasChart;
-use Filament\Pages\Page;
+use Filament\Pages\Dashboard as BaseDashboard;
 
-class DashboardRelatorios extends Page
+class DashboardRelatorios extends BaseDashboard
 {
-
-    protected static string $routePath = '/relatorios/dashboard'; // Caminho personalizado
+    protected static string $routePath = '/dashboard';
     protected static ?string $navigationIcon = 'heroicon-o-chart-bar';
     protected static ?string $navigationLabel = 'Dashboard de Relatórios';
-
-    // Associar ao cluster
     protected static ?string $cluster = Relatorios::class;
+    protected static string $view = 'filament-panels::pages.dashboard';
 
     protected function getHeaderWidgets(): array
     {
@@ -27,5 +25,10 @@ class DashboardRelatorios extends Page
             NotasChart::class,
             PresencaChart::class,
         ];
+    }
+
+    public function getColumns(): int
+    {
+        return 1;
     }
 }
